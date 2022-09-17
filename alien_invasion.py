@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-Class AlienInvasion:
+class AlienInvasion:
     #Overall Class
 
     def __init__(self):
