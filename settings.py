@@ -5,7 +5,7 @@ class Settings:
         #initialize the game's settings
 
         #Ship Settings
-        self.ship_speed = 1.5
+        self.ship_speed = 2.0
 
         #Screen Settings
         self.screen_width = 1200

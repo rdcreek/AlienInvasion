@@ -9,7 +9,15 @@ class AlienInvasion:
         #initialize the game
         pygame.init()
         self.settings = Settings()
-        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+
+        """ Fullscreen mode--Comment out to use Windowed Settings"""
+        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        self.settings.screen_width = self.screen.get_rect().width
+        self.settings.screen_height = self.screen.get_rect().height
+
+
+        # Windowed Mode--Comment out to use Fullscreen Settings.
+        #self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Alien Invasion")
 
         self.ship = Ship(self)
@@ -21,17 +29,19 @@ class AlienInvasion:
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_events(event)
             elif event.type == pygame.KEYUP:
-                self._check_keydown_events(event)
+                self._check_keyup_events(event)
 
-    def _check_keydown_events(selfself, event):
+    def _check_keydown_events(self, event):
         if event.key == pygame.K_RIGHT:
             # Move the ship to the right
             self.ship.moving_right = True
+            #Move ship to the left
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = True
+            #Press 'q' to quit
         elif event.key == pygame.K_q:
             sys.exit()
-    def _check_keyup_events(selfself, event):
+    def _check_keyup_events(self, event):
         if event.key == pygame.K_RIGHT:
             self.ship.moving_right = False
         elif event.key == pygame.K_LEFT:
